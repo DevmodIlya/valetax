@@ -1,0 +1,47 @@
+{
+  "href": "ru",
+  "lng": "Русский",
+  "shortHref": "ru",
+  "direction": "ltr",
+  "languages": {
+    "ru": "Русский",
+    "eng": "English"
+  },
+  "notFound": "К сожалению мы не нашли того что вы искали",
+  "navigation": {
+  },
+  "pages": {
+    "homePage": {
+      "greeting": "Добро пожаловать на демо тестового задания",
+      "targets": "В этом примере представлена работа с API удаленного сервера. Локальный сервер отсылает запрос по протоколу HTTP.",
+      "dscTitle": "Действующие энд поинты:",
+      "dsc1": "api.user.tree.get - Получение дерева сообщений",
+      "dsc2": "api.user.tree.node.create - Создание ноды дерева",
+      "dsc3": "api.user.tree.node.rename - Переименование ноды",
+      "dsc4": "api.user.tree.node.delete - Удаление ноды"
+    }
+  },
+  "footerCopyright": "Godevmode 2015 - 2024 © All rights reserved <a href='godevmod.com'>Godevmod.com</a>",
+  "filterNotFound": "нет данных",
+  "general": {
+    "gettingTreeSpinner": "Извлекаю дерево"
+  },
+  "example": {
+    "createNewTree": "Создать новое дерево",
+    "message": "Сообщение с сервера",
+    "reqErrTitle": "Ошибка",
+    "reqErr": "Произошла ошибка во время запроса на сервер",
+    "duplicatename": "Узел с таким именем уже существует",
+    "couldntrenamerootnode": "Невозможно переименовать корневой узел",
+    "youhavetodeleteallchildrennodesfirst": "Прежде чем удалить основной узел, удалите вложеные узлы.",
+    "myTreesTitle": "Мои деревья",
+    "newNodeTitle": "Добавление нового узла",
+    "renameNodeTitle": "Переименовать узел",
+    "enterTreeName": "Укажите название дерева",
+    "errEmptyTreeName": "Вы не указали название дерева",
+    "enterNodeName": "Укажите имя узла",
+    "approveDel": "Подтвердите удаление узла",
+    "errEmptyNodeName": "Укажите имя узла",
+    "saveAndExit": "Создать и закрыть"
+  }
+}
