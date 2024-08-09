@@ -18,7 +18,7 @@ export class NodesExample {
         this.#treesListResultsCls = <HTMLDivElement>document.querySelector(treesListResultsCls);
         this.#nodesResults = <HTMLDivElement>document.querySelector(nodesResultsCls);
         this.#transl = <KeyStringInterface<string>>Translations.get("example");
-        this.fetchTree("sss");
+        this.fetchTree("FirstTree");
 
         this.#treesList = <KeyStringInterface<{
             name: string,
@@ -37,7 +37,7 @@ export class NodesExample {
 
     private appendTreeToList(tree: { name: string, id: number }): void {
         this.#treesListResultsCls.appendChild(<HTMLDivElement>Elements.newElement({
-            text: tree.name,
+            text: "<div><i class=\"fa-solid fa-share-nodes\"></i> </div>"+tree.name,
             classes: ["tree-item"],
             callOnClick: {
                 fn: async () => {
@@ -321,6 +321,7 @@ export class NodesExample {
             ]
         });
         li.classList.add("node-details-container");
+        li.classList.add("node-details-container");
         li.appendChild(buttonsArray);
 
         li.addEventListener("click", (e: Event) => {
@@ -339,14 +340,17 @@ export class NodesExample {
             }
             if (childTree.classList.contains("active")) {
                 childTree.classList.remove("active");
+                childTree.classList.add("inactive");
                 return
             }
+            childTree.classList.remove("inactive");
             childTree.classList.add("active");
         });
 
         if (node.children && node.children.length > 0) {
             const ul = document.createElement('ul');
             ul.classList.add("child-tree");
+            ul.classList.add("active");
             node.children.forEach((child: any) => {
                 ul.appendChild(this.createTreeNodes(child, treeId, treeName));
             });

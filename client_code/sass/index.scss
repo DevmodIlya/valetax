@@ -14,6 +14,7 @@
   .trees-list-container {
     display: flex;
     align-items: center;
+    margin: 5px 0 40px;
 
     .tree-item {
       cursor: pointer;
@@ -32,14 +33,20 @@
 
   .nodes-container {
     ul {
-      display: none;
+      //display: none;
+      box-shadow: 0 5px 6px -1px;
+      padding: 0;
+      margin: 0 15px 20px;
 
       &.active {
         &.child-tree {
           display: block;
-          box-shadow: 0 5px 6px -1px;
-          padding: 0;
-          margin: 0 15px 20px;
+        }
+      }
+
+      &.inactive {
+        &.child-tree {
+          display: none;
         }
       }
 

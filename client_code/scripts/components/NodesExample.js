@@ -39,7 +39,7 @@ class NodesExample {
         __classPrivateFieldSet(this, _NodesExample_treesListResultsCls, document.querySelector(treesListResultsCls), "f");
         __classPrivateFieldSet(this, _NodesExample_nodesResults, document.querySelector(nodesResultsCls), "f");
         __classPrivateFieldSet(this, _NodesExample_transl, Translations_1.Translations.get("example"), "f");
-        this.fetchTree("sss");
+        this.fetchTree("FirstTree");
         __classPrivateFieldSet(this, _NodesExample_treesList, JSON.parse((_a = localStorage.getItem("myTrees")) !== null && _a !== void 0 ? _a : "{}"), "f");
         if (__classPrivateFieldGet(this, _NodesExample_treesListResultsCls, "f")) {
             for (let key in __classPrivateFieldGet(this, _NodesExample_treesList, "f")) {
@@ -51,7 +51,7 @@ class NodesExample {
     }
     appendTreeToList(tree) {
         __classPrivateFieldGet(this, _NodesExample_treesListResultsCls, "f").appendChild(Elements_1.Elements.newElement({
-            text: tree.name,
+            text: "<div><i class=\"fa-solid fa-share-nodes\"></i> </div>" + tree.name,
             classes: ["tree-item"],
             callOnClick: {
                 fn: () => __awaiter(this, void 0, void 0, function* () {
@@ -329,6 +329,7 @@ class NodesExample {
             ]
         });
         li.classList.add("node-details-container");
+        li.classList.add("node-details-container");
         li.appendChild(buttonsArray);
         li.addEventListener("click", (e) => {
             var _a;
@@ -347,13 +348,16 @@ class NodesExample {
             }
             if (childTree.classList.contains("active")) {
                 childTree.classList.remove("active");
+                childTree.classList.add("inactive");
                 return;
             }
+            childTree.classList.remove("inactive");
             childTree.classList.add("active");
         });
         if (node.children && node.children.length > 0) {
             const ul = document.createElement('ul');
             ul.classList.add("child-tree");
+            ul.classList.add("active");
             node.children.forEach((child) => {
                 ul.appendChild(this.createTreeNodes(child, treeId, treeName));
             });

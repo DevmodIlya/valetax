@@ -220,7 +220,8 @@
     margin: 20px 0 0; }
   .page-container .trees-list-container {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    margin: 5px 0 40px; }
     .page-container .trees-list-container .tree-item {
       cursor: pointer;
       padding: 10px;
@@ -232,12 +233,13 @@
         color: #ffffff;
         background: #3F51B5; }
   .page-container .nodes-container ul {
-    display: none; }
+    box-shadow: 0 5px 6px -1px;
+    padding: 0;
+    margin: 0 15px 20px; }
     .page-container .nodes-container ul.active.child-tree {
-      display: block;
-      box-shadow: 0 5px 6px -1px;
-      padding: 0;
-      margin: 0 15px 20px; }
+      display: block; }
+    .page-container .nodes-container ul.inactive.child-tree {
+      display: none; }
     .page-container .nodes-container ul:first-child {
       padding: 0;
       display: block; }
