@@ -111,7 +111,8 @@ class Application {
                 return;
             }
             files.forEach((file) => {
-                Promise.resolve().then(() => __importStar(require(path + "/" + file))).then((importClass) => {
+                var _a;
+                (_a = path + "/" + file, Promise.resolve().then(() => __importStar(require(_a)))).then((importClass) => {
                     // if (Object.keys(importClass.default).length > 0) {
                     const classFn = importClass.default;
                     if (typeof classFn === 'function' && /^class\s/.test(classFn.toString())) {

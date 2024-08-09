@@ -17,6 +17,7 @@
   },
   "scripts": {
     "webpackdev": "webpack --config ./webpack.dev.js",
+    "webpackbuild": "webpack --config ./webpack.prod.js",
     "start": "nodemon",
     "buildtsc": "tsc -w"
   },

@@ -24,11 +24,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const GuardWrapper_1 = require("../apis/GuardWrapper");
+const Fetcher_1 = require("../Fetcher");
 class IndexPageController {
     constructor(app) {
         this.timezone = "Asia/Jerusalem";
         this.app = app;
+        this.apiPath = app.configs.get("API_PATH");
         app.server.get('/', this.homePage.bind(this));
+        app.server.post('/fetchTree/:treeName', this.fetchTree.bind(this));
+        app.server.post('/createNodeInTree/:treeName/:parentNodeId/:nodeName', this.createNodeInTree.bind(this));
+        app.server.post('/renameNodeInTree/:treeName/:parentNodeId/:nodeName', this.renameNodeInTree.bind(this));
+        app.server.post('/deleteNodeInTree/:treeName/:parentNodeId', this.deleteNodeInTree.bind(this));
     }
     homePage(args) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -42,9 +48,73 @@ class IndexPageController {
             });
         });
     }
-    checkUser(args) {
+    fetchTree(args) {
         return __awaiter(this, void 0, void 0, function* () {
-            args.res.json("ok");
+            const params = args.req.body;
+            Fetcher_1.Fetcher.makePostFetch({
+                url: `${this.apiPath}/api.user.tree.get?treeName=` + params.treeId,
+                data: { treeName: params.treeId },
+                method: "POST"
+            }).then((tree) => {
+                args.res.json(tree);
+            }).catch(() => {
+                args.res.json({});
+            });
+        });
+    }
+    createNodeInTree(args) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const params = args.req.body;
+            Fetcher_1.Fetcher.makePostFetch({
+                url: `${this.apiPath}/api.user.tree.node.create?treeName=${params.treeName}&parentNodeId=${params.parentNodeId}&nodeName=${params.nodeNameValue}`,
+                data: {
+                    treeName: params.treeId,
+                    parentNodeId: params.parentNodeId,
+                    nodeName: params.nodeName
+                },
+                method: "POST"
+            }).then((tree) => {
+                args.res.json(tree);
+            }).catch(() => {
+                args.res.json({});
+            });
+        });
+    }
+    renameNodeInTree(args) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const params = args.req.body;
+            console.log("renameNodeInTree", params);
+            Fetcher_1.Fetcher.makePostFetch({
+                url: `${this.apiPath}/api.user.tree.node.rename?treeName=${params.treeName}&nodeId=${params.parentNodeId}&newNodeName=${params.nodeNameValue}`,
+                data: {
+                    treeName: params.treeName,
+                    nodeId: params.parentNodeId,
+                    newNodeName: params.nodeName
+                },
+                method: "POST"
+            }).then((tree) => {
+                args.res.json(tree);
+            }).catch(() => {
+                args.res.json({});
+            });
+        });
+    }
+    deleteNodeInTree(args) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const params = args.req.body;
+            console.log("renameNodeInTree", params);
+            Fetcher_1.Fetcher.makePostFetch({
+                url: `${this.apiPath}/api.user.tree.node.delete?treeName=${params.treeName}&nodeId=${params.parentNodeId}`,
+                data: {
+                    treeName: params.treeName,
+                    nodeId: params.parentNodeId
+                },
+                method: "POST"
+            }).then((tree) => {
+                args.res.json(tree);
+            }).catch(() => {
+                args.res.json({});
+            });
         });
     }
 }
@@ -52,6 +122,15 @@ __decorate([
     GuardWrapper_1.GuardWrapper.checkIfLoggedIn(true)
 ], IndexPageController.prototype, "homePage", null);
 __decorate([
-    GuardWrapper_1.GuardWrapper.checkIfLoggedIn()
-], IndexPageController.prototype, "checkUser", null);
+    GuardWrapper_1.GuardWrapper.checkIfLoggedIn(true)
+], IndexPageController.prototype, "fetchTree", null);
+__decorate([
+    GuardWrapper_1.GuardWrapper.checkIfLoggedIn(true)
+], IndexPageController.prototype, "createNodeInTree", null);
+__decorate([
+    GuardWrapper_1.GuardWrapper.checkIfLoggedIn(true)
+], IndexPageController.prototype, "renameNodeInTree", null);
+__decorate([
+    GuardWrapper_1.GuardWrapper.checkIfLoggedIn(true)
+], IndexPageController.prototype, "deleteNodeInTree", null);
 exports.default = IndexPageController;
