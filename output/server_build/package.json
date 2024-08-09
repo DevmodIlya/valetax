@@ -7,7 +7,7 @@
     "start": "nodemon",
     "checkandrun": "npm run test && nodemon",
     "copyrequired": "copyfiles README.txt output/ && copyfiles project_starter.exe output/ && copyfiles package.json output/server_build/ && copyfiles -u 1 server/.env.* output/server_build/ && copyfiles -u 1 server/languages/* output/server_build/",
-    "build": "npm run copyrequired && tsc && node -e require('fs').renameSync('output/server_build/Application.js','output/server_build/Valetax.js')",
+    "build": "npm run copyrequired && tsc && node -e \"require('fs').renameSync('output/server_build/Application.js','output/server_build/Valetax.js')\"",
     "test": "jest --maxWorkers=1 --no-cache test",
     "tsc": "tsc"
   },
