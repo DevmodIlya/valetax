@@ -21,7 +21,7 @@
       "dsc4": "api.user.tree.node.delete - Удаление ноды"
     }
   },
-  "footerCopyright": "Godevmode 2015 - 2024 © All rights reserved",
+  "footerCopyright": "Godevmode 2015 - 2024 © All rights reserved <a href='godevmod.com'>Godevmod.com</a>",
   "filterNotFound": "нет данных",
   "general": {
     "gettingTreeSpinner": "Извлекаю дерево"
