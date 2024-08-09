@@ -1,0 +1,267 @@
+.loader-parent {
+  .alert-modal {
+    width: 300px;
+    padding: 5px;
+    box-shadow: none;
+  }
+}
+
+.rtl {
+  .alert-modal {
+    text-align: right;
+
+    .message-title-box {
+      direction: rtl;
+    }
+
+    .buttons-container {
+      direction: rtl;
+      justify-content: left;
+    }
+
+    .message-box {
+      direction: rtl;
+      text-align: left;
+
+      .table-content {
+        .first-table {
+          direction: rtl;
+        }
+      }
+    }
+  }
+
+  .parent-modal {
+    .okbutton, .cancelbutton {
+      font-size: 20px;
+    }
+  }
+}
+
+.parent-modal {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+}
+
+.alert-input-container-outer {
+  margin: 0 auto 13px;
+  text-align: left;
+  width: 280px;
+
+  .input-title {
+    font-size: 17px;
+  }
+
+  input {
+    padding: 10px;
+    width: 255px;
+  }
+}
+
+.alert-modal {
+  box-shadow: 1px 21px 19px 2px;
+  position: relative;
+  width: 400px;
+  //left: 50%;
+  margin: 0 auto;
+  top: 20%;
+  z-index: 9;
+  background: #fff;
+  text-align: left;
+
+  .message-title-box {
+    direction: ltr;
+    padding: 10px;
+    background: #19335b;
+    color: #fff;
+    font-size: 15px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+
+    .close {
+      font-size: 28px;
+      cursor: pointer;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    direction: ltr;
+    flex-wrap: wrap;
+    justify-content: right;
+  }
+
+  .message-box {
+    padding: 10px;
+    direction: ltr;
+    font-size: 16px;
+    text-align: left;
+
+    .table-content {
+      .first-table {
+        direction: ltr;
+      }
+    }
+  }
+
+  .loader {
+    text-align: center;
+  }
+
+  .paypal-icon {
+    color: #003087;
+    display: inline-block;
+  }
+
+  .loading-msg {
+    display: block;
+  }
+
+  .lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #004B90;
+    margin: -4px 0 0 -4px;
+  }
+
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .okbutton, .cancelbutton {
+    text-align: center;
+    font-variant: all-petite-caps;
+    box-shadow: inset 0px 1px 0px 0px #cf866c;
+    background: linear-gradient(to bottom, #d0451b 5%, #7e2523 100%);
+    background-color: #d0451b;
+    border-radius: 3px;
+    border: 1px solid #7e2523;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #854629;
+    min-width: 30px;
+    padding: 2px 10px 4px;
+    margin: 5px;
+
+    &:hover {
+      background: linear-gradient(to bottom, #d95836 5%, #782928 100%);
+      background-color: #d0451b;
+    }
+  }
+
+  .cancelbutton {
+    background: #0b355a;
+    width: auto;
+    border: 0;
+    box-shadow: none;
+
+    &:hover {
+      background: #134c7d;
+    }
+  }
+}

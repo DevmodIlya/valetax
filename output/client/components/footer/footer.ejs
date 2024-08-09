@@ -1,0 +1,59 @@
+</div>
+<div class="app-footer can-resize">
+    <div class="footer-container">
+        <div class="footer-column">
+            <%- include("../navigation/navigation", {pageId: pageId, onTop:5}) -%>
+        </div>
+        <div class="footer-column">
+            <div class="contacts-details"></div>
+        </div>
+    </div>
+    <div class="copyright">
+        <%=translations.footerCopyright%>
+    </div>
+</div>
+
+<script>
+
+    function checkOrientation() {
+        let orintation = "";
+        if (window.matchMedia("(orientation: portrait)").matches) {
+            orintation = "portrait";
+        }
+
+        if (window.matchMedia("(orientation: landscape)").matches) {
+            orintation = "landscape";
+        }
+        document.body.classList.remove("small-height-screen");
+        document.body.classList.remove("medium-height-screen");
+        document.body.classList.remove("mobile-height-screen");
+
+        if (window.innerWidth >= 400 && window.innerWidth < 900) {
+            document.body.classList.add("medium-height-screen");
+        }
+
+        if ((window.innerWidth < 400)) {
+            document.body.classList.add("small-height-screen");
+        }
+
+        if ((window.innerHeight < window.innerWidth)) {
+            if (window.innerHeight < 600) {
+                document.body.classList.remove("medium-height-screen");
+                document.body.classList.add("mobile-height-screen");
+            }
+        }
+    }
+
+    checkOrientation();
+
+    screen.orientation.addEventListener("change", (e) => {
+        checkOrientation();
+    });
+
+    window.addEventListener("resize", (e) => {
+        checkOrientation();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<%
+const accessLevel = locals.accessLevel;
+const navigation = translations.navigation;
+const logotype = "";
+const general = translations.general;
+%>
+
+<div class="menu-panel">
+    <div class="">
+        <a class="app-header-menu-item logo" href="/">
+            <img src="<%= logotype && logotype !== "" ? logotype : '../../images/logo.png' %>">
+        </a>
+    </div>
+</div>
+<% if (langsList) { %>
+    <div class="languages-selector">
+        <div class="curr-lang" onclick="toggleLangMenu(0)">
+            <%= translations.lng %>
+            <div class="pointer">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+        </div>
+        <div class="dropdown">
+            <% for (let item of langsList){ %>
+                <div class="language-item">
+                    <a href="<%= locals.pathname %>?lang=<%= item %>" class="can-increase candidates"
+                       tabindex="<% 2 * locals.onTop %>"><%= translations.languages[item] %></a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+<% } %>

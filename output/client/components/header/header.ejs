@@ -1,0 +1,121 @@
+<%
+const generalTranslations = locals.translations.general;
+const pagesTranslations = locals.translations.pages;
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <% if (!locals.pageData){ %>
+        <title>Godevmode Software Development Services</title>
+    <% } else { %>
+
+    <% } %>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="author" content="(c) 2015 Godevmod">
+    <meta name="TalentStream" content="Godevmode Software Development Services">
+    <meta name="keywords" content="Godevmode Software Development Services">
+    <meta name="description"
+          content="Recruiting Systems">
+    <meta property="og:site_name" content="Godevmode Software Development Services">
+    <meta property="og:title" content="Godevmode Software Development Services">
+    <meta property="og:image" content="https://godevmod.com/images/ogBanner.png">
+    <meta property="og:url" content="https://godevmod.com">
+    <meta property="og:description"
+          content="Godevmode Software Development Services">
+
+    <base href="/">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16">
+
+    <script src="../../scripts/bundle.js"></script>
+
+    <link href="../../styles/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/animate.css"/>
+
+    <script>
+        function toggleMenu(open) {
+            var menu = document.getElementById('menu-panels-wrapper');
+
+            if (menu && open === 0 && !menu.hasAttribute('open')) {
+                setTimeout(function () {
+                    menu.style.display = (window.innerWidth > 980) ? 'flex' : 'block';
+                    menu.setAttribute('open', 'true');
+                }, 100)
+                return;
+            }
+
+            if (menu && open === 1 && menu.hasAttribute('open')) {
+                menu.style.display = (window.innerWidth > 980) ? 'flex' : 'none';
+                menu.removeAttribute('open');
+            }
+
+            if (menu && open === 2) {
+                menu.style.display = (window.innerWidth > 980) ? 'flex' : 'none';
+                menu.removeAttribute('open');
+            }
+
+        }
+
+        function toggleLangMenu(open) {
+            var menu = document.querySelector('.dropdown');
+            if (menu && open === 0 && !menu.hasAttribute('open')) {
+                setTimeout(function () {
+                    menu.style.display = (window.innerWidth > 980) ? 'flex' : 'block';
+                    menu.setAttribute('open', 'true');
+                }, 100)
+                return;
+            }
+
+            if (menu && open === 1 && menu.hasAttribute('open')) {
+                menu.style.display = 'none';
+                menu.removeAttribute('open');
+            }
+
+            if (menu && open === 2) {
+                menu.style.display = (window.innerWidth > 980) ? 'flex' : 'none';
+                menu.removeAttribute('open');
+            }
+
+        }
+
+        window.onresize = function () {
+            toggleMenu(2);
+            toggleLangMenu(1);
+        }
+
+        var counter = 0;
+        window.onscroll = function () {
+            // toggleMenu(2);
+            toggleLangMenu(1);
+        }
+    </script>
+
+    <script>
+        localStorage.setItem("translations", JSON.stringify(<%- JSON.stringify(locals.translations) %>))
+    </script>
+</head>
+<body onclick="toggleMenu(1);toggleLangMenu(1);" class="<%= translations.direction %>">
+
+<header class="app-header">
+    <div class="app-header-menu">
+
+        <div class="menu-panels-wrapper <%= translations.direction %>" id="menu-panels-wrapper">
+            <%- include("../navigation/navigation", {pageId: pageId, onTop: 1}) -%>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css?v=7857324">
+</header>
+
+<div class="page-container">

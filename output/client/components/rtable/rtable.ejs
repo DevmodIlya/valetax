@@ -1,0 +1,64 @@
+<div class="<%=tableClass??""%>">
+    <% if (!tableData || !tableData.data || tableData.data.length === 0){ %>
+        No data available
+    <% } else{ %>
+        <div class="table-content" id="<%= tableId %>">
+            <div class="first-table">
+                <div class="floating-header">
+                    <% var tableWidth = 0; %>
+                    <% tableData.headings.forEach((heading)=>{ %>
+                        <div class="td <%= heading.colId %>" style="width: <%= heading.width %>">
+                            <%= heading.text %>
+                        </div>
+                    <%
+                        tableWidth += parseFloat(heading.width.replace("px", "")) + 21;
+                    });
+                    %>
+                </div>
+                <div class="table-contents" style="width:<%= tableWidth %>px;">
+                    <% tableData.data.forEach((tableRow)=>{ %>
+                        <div class="row">
+                            <% tableData.headings.forEach((heading)=>{ %>
+                                <div class="td <%= heading.colId %>" style="width: <%= heading.width %>"
+                                     title="<%= tableRow[heading.colId] %>">
+                                    <% if (heading.colId === "quantity"){ %>
+                                        <div class="cart-item-controls">
+                                            <div class="btn cart-btns decrease"
+                                                 id="dec_<%= tableRow[heading.itemId] %>">
+                                                -
+                                            </div>
+                                            <div class="amount-container">
+                                                <input type="text" value="<%= tableRow[heading.amount] %>"
+                                                       id="incart<%= tableRow[heading.itemId] %>">
+                                            </div>
+                                            <div class="btn cart-btns increase"
+                                                 id="inc_<%= tableRow[heading.itemId] %>">
+                                                +
+                                            </div>
+                                        </div>
+                                    <% } else %>
+                                    <% if (heading.colId === "remove"){ %>
+                                        <div class="remove-item" id="<%= tableRow[heading.removeId] %>">
+                                            <i class="fas fa-times"></i>
+                                            Remove
+                                        </div>
+                                    <% } else %>
+                                    <% if (tableRow[heading.colId] && tableRow[heading.colId].toString().indexOf("<") > -1){ %>
+                                        <%- tableRow[heading.colId] %>
+                                    <% }else { %>
+                                        <% if (heading.colId === "image"){ %>
+                                            <img src="<%= tableRow[heading.colId] %>" alt=""/>
+                                            <%= tableRow[heading.colIdSub] %>
+                                        <% } else { %>
+                                            <%= heading.symbol %><%= tableRow[heading.colId] %>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                            <% }); %>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>

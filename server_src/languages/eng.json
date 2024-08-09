@@ -1,0 +1,47 @@
+{
+  "href": "eng",
+  "lng": "English",
+  "shortHref": "en",
+  "direction": "ltr",
+  "languages": {
+    "ru": "Русский",
+    "eng": "English"
+  },
+  "notFound": "We didn't find what you was looking for",
+  "navigation": {
+  },
+  "pages": {
+    "homePage": {
+      "greeting": "Welcome to the demo test task",
+      "targets": "This example shows working with a remote server API. The local server sends a request via HTTP.",
+      "dscTitle": "Current end points:",
+      "dsc1": "api.user.tree.get - Getting a message tree",
+      "dsc2": "api.user.tree.node.create - Creating a tree node",
+      "dsc3": "api.user.tree.node.rename - Renaming a node",
+      "dsc4": "api.user.tree.node.delete - Deleting a node"
+    }
+  },
+  "footerCopyright": "Godevmode 2015 - 2024 © All rights reserved",
+  "filterNotFound": "no data",
+  "general": {
+    "gettingTreeSpinner": "I extract the tree"
+  },
+  "example": {
+    "createNewTree": "Create a new tree",
+    "message": "Message from the server",
+    "reqErrTitle": "Error",
+    "reqErr": "An error occurred while requesting the server.",
+    "duplicatename": "A node with this name already exists.",
+    "couldntrenamerootnode": "Couldn't rename root node",
+    "youhavetodeleteallchildrennodesfirst": "You have to delete all children nodes first",
+    "myTreesTitle": "My trees",
+    "newNodeTitle": "Adding a new node",
+    "renameNodeTitle": "Rename node",
+    "enterTreeName": "Specify the name of the tree",
+    "errEmptyTreeName": "You have not specified the name of the tree.",
+    "enterNodeName": "Specify the node name",
+    "approveDel": "Confirm node deletion",
+    "errEmptyNodeName": "Specify the node name",
+    "saveAndExit": "Create and close"
+  }
+}

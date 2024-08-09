@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "outDir": "./output/server_build/",
+    "rootDir": "./server_src",
+    "strict": true,
+    "target": "ES2015",
+    "lib": ["es2015"],
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": false,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "exclude": [
+    "output",
+    "node_modules",
+    "client_code",
+    "./node_modules"
+  ]
+}

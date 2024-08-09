@@ -1,0 +1,15 @@
+<%- include("components/header/header", {pageId: pageId}) -%>
+<%
+const homePageTransl = translations.pages.homePage;
+%>
+<h2 class=""><%=homePageTransl.greeting%></h2>
+<div class="text"><%=homePageTransl.targets%></div>
+<div class="text"><%=homePageTransl.dscTitle%></div>
+<ul class="text">
+    <li><%=homePageTransl.dsc1%></li>
+    <li><%=homePageTransl.dsc2%></li>
+    <li><%=homePageTransl.dsc3%></li>
+    <li><%=homePageTransl.dsc4%></li>
+</ul>
+<%- include("./example", {pageId: pageId, translations:translations.example}) -%>
+<%- include("components/footer/footer", {pageId: pageId}) -%>
